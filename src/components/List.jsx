@@ -1,10 +1,18 @@
-import { markAsCompleted } from '../redux/reducers/todoSlice'
+import { markAsCompleted } from '../redux/features/todoSlice'
 import { useDispatch } from 'react-redux';
-const List = ({ items, removeItem, editItem }) => {
+import { useState } from 'react';
+import { addTodo, updateTodo, deleteTodo } from '../redux/features/todoSlice';
+const List = ({ items, editItem }) => {
+
     const dispatch = useDispatch()
     const handleComplete = (items) => {
         dispatch(markAsCompleted({ id: items.id, completed: !items.completed }))
     }
+
+    const removeItem = (id) => {
+        dispatch(deleteTodo(id))
+    }
+
 
     return (
         <>

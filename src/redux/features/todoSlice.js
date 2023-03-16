@@ -17,7 +17,6 @@ const todoSlice = createSlice({
             editItem.title = action.payload.title
         },
         markAsCompleted:(state, action) => {
-            console.log("actions, action", action)
             const index = state.findIndex(
                 (todo) => todo.id === action.payload.id
             );
