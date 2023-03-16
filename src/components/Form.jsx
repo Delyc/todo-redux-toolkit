@@ -21,8 +21,6 @@ const Form = ({name, setName, isEditing, editID,  setIsEditing, setEditiID}) => 
     
       }
     
-    
-      
     return ( 
         <form onSubmit={handleSubmit} className="flex gap-4">
         <input type="text" placeholder='add task' onChange={(event) => setName(event.target.value)} value={name} className="underline-none border py-4 px-10 rounded shadow-lg" />
