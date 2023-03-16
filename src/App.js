@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import List from './components/List';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
