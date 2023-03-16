@@ -1,6 +1,6 @@
 import { markAsCompleted } from '../redux/reducers/todoSlice'
 import { useDispatch } from 'react-redux';
-const List = ({ items, removeItem, editItem, markCompleted, id, completed }) => {
+const List = ({ items, removeItem, editItem }) => {
     const dispatch = useDispatch()
     const handleComplete = (items) => {
         dispatch(markAsCompleted({ id: items.id, completed: !items.completed }))
@@ -10,7 +10,6 @@ const List = ({ items, removeItem, editItem, markCompleted, id, completed }) => 
         <>
             <div className="flex flex-col gap-4">
                 {items.map((item) => {
-                    console.log(item.completed)
                     const { id, title } = item
                     return (
                         <ul key={id} className="w-full">
@@ -21,7 +20,6 @@ const List = ({ items, removeItem, editItem, markCompleted, id, completed }) => 
                                         {title}
                                     </p>
                                 </div>
-
                                 <div className="flex gap-5">
                                     <button className="bg-blue-200 px-5" type="button" onClick={() => editItem(item)}>edit</button>
                                     <button className="bg-red-300 px-5" type="button" onClick={() => removeItem(id)}>delete</button>

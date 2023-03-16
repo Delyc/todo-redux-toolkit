@@ -2,21 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { nanoid } from "nanoid";
 const todoSlice = createSlice({
     name: "todos",
-    initialState: [
-        { id: nanoid(),
-            title: "todo1",
-            completed: false
-        },
-        { id: nanoid(),
-            title: "todo1",
-            completed: false
-        },
-        { id: nanoid(),
-            title: "todo1",
-            completed: false
-        },
-        
-    ],
+    initialState: [],
     reducers: {
         addTodo: (state, action) => {
             const newTodo = {
@@ -29,7 +15,6 @@ const todoSlice = createSlice({
         updateTodo : (state, action) => {
             const editItem = state.find((item) => item.id === action.payload.id)
             editItem.title = action.payload.title
-            // const editItem = state.find((item) => item.id === id)
         },
         markAsCompleted:(state, action) => {
             console.log("actions, action", action)

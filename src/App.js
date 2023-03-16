@@ -6,8 +6,6 @@ import { useSelector } from 'react-redux';
 import { addTodo } from './redux/reducers/todoSlice';
 import { updateTodo } from './redux/reducers/todoSlice';
 import { deleteTodo } from './redux/reducers/todoSlice';
-
-
 function App() {
   const dispatch = useDispatch()
   const [name, setName] = useState("")
@@ -15,8 +13,8 @@ function App() {
   const [editID, setEditiID] = useState(null)
   const todos = useSelector((state) => state.todos)
  
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = (event) => {
+    event.preventDefault()
     if (!name) {
       alert("please enter a task")
     } else if (name && isEditing) {
@@ -41,14 +39,12 @@ function App() {
     setName(item.title)
   }
 
-
-
   return (
     <>
       <section className='flex flex-col items-center gap-10 py-20'>
-        <h1 className='text-4xl uppercase font-bold'>react todo</h1>
+        <h1 className='text-4xl uppercase font-bold'>react todo using redux</h1>
         <form onSubmit={handleSubmit} className="flex gap-4">
-          <input type="text" placeholder='add task' onChange={(e) => setName(e.target.value)} value={name} className="underline-none border py-4 px-10 rounded shadow-lg" />
+          <input type="text" placeholder='add task' onChange={(event) => setName(event.target.value)} value={name} className="underline-none border py-4 px-10 rounded shadow-lg" />
           <button className='bg-blue-600 py-3 px-5 text-white font-medium rounded' type='submit'>{isEditing ? "edit" : "add"}</button>
         </form>
         {todos.length > 0 && (
